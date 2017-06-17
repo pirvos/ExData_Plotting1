@@ -26,10 +26,18 @@ points(hpc3$DateTime, hpc3$Sub_metering_2, type="l", col="red")
 points(hpc3$DateTime, hpc3$Sub_metering_3, type="l", col="blue")
 legend("topright", pch = "_", 
        col=c("black", "blue", "red"), 
-       legend = c("Sum_metering_1", 
-                  "Sum_metering_2", 
-                  "Sum_metering_3"), 
+       legend = c("Sub_metering_1", 
+                  "Sub_metering_2", 
+                  "Sub_metering_3"), 
        lwd=2)
 
 ## to begin plot4
-
+par(mfrow=c(2,2), mar=c(5, 6, 2, 2))
+plot(hpc3$DateTime, hpc3$Global_active_power, type="l",ylab = "Global Active Ppwer (kilowatts)", xlab = "")
+plot(hpc3$DateTime, hpc3$Voltage, type="l", ylab = "Voltage", xlab = "datetime")
+plot(hpc3$DateTime, hpc3$Sub_metering_1, ylab="Engergy sub metering", xlab= "", type = "n")
+points(hpc3$DateTime, hpc3$Sub_metering_1, type="l")
+points(hpc3$DateTime, hpc3$Sub_metering_2, type="l", col="red")
+points(hpc3$DateTime, hpc3$Sub_metering_3, type="l", col="blue")
+legend("topright", pch = "_", col=c("black", "blue", "red"), legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), lwd=2)
+plot(hpc3$DateTime, hpc3$Global_reactive_power, type="l", ylab = "Global_reactive_power", xlab = "datetime")
