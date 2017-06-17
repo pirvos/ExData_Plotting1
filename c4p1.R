@@ -4,6 +4,8 @@ hpc3$DateTime <- strptime(paste(hpc3$Date, hpc3$Time), "%d/%m/%Y %T")
 hpc3$Sub_metering_1 <- as.numeric(hpc3$Sub_metering_1)
 hpc3$Sub_metering_2 <- as.numeric(hpc3$Sub_metering_2)
 hpc3$Sub_metering_3 <- as.numeric(hpc3$Sub_metering_3)
+hpc3$Global_active_power <- as.numeric(hpc3$Global_active_power)
+hpc2$Global_reactive_power= as.numeric(hpc2$Global_reactive_power)
 
 ## Plot 1
 png(filename = "plot1.png")
