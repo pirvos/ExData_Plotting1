@@ -5,20 +5,22 @@ hpc3$Sub_metering_1 <- as.numeric(hpc3$Sub_metering_1)
 hpc3$Sub_metering_2 <- as.numeric(hpc3$Sub_metering_2)
 hpc3$Sub_metering_3 <- as.numeric(hpc3$Sub_metering_3)
 
-## Still need to create the appropriate file devide on each 
-## case; for the moment, just exploring...
-## Need to adjust the y axis as well as include the 
-## correct titles, labels, etc. 
+## Plot 1
+png(filename = "plot1.png")
 hist(hpc3$Global_active_power, col="red", 
      xlab = "Global Active Power (kilowatts)", 
      main = "Global Active Power")
+dev.off()
 
 
-## First draft for plot 2
+## Plot 2
+png(filename = "plot2.png")
 plot(hpc3$DateTime, hpc3$Global_active_power, type="l",
      ylab = "Global Active Ppwer (kilowatts)", xlab = "")
+dev.off()
 
-## to begin with for plot 3
+## Plot 3
+png(filename = "plot3.png")
 plot(hpc3$DateTime, hpc3$Sub_metering_1, 
      ylab="Engergy sub metering", xlab= "", type = "n")
 points(hpc3$DateTime, hpc3$Sub_metering_1, type="l")
@@ -30,8 +32,10 @@ legend("topright", pch = "_",
                   "Sub_metering_2", 
                   "Sub_metering_3"), 
        lwd=2)
+dev.off()
 
-## to begin plot4
+## Plot 4
+png(filename = "plot4.png")
 par(mfrow=c(2,2), mar=c(5, 6, 2, 2))
 plot(hpc3$DateTime, hpc3$Global_active_power, type="l",ylab = "Global Active Ppwer (kilowatts)", xlab = "")
 plot(hpc3$DateTime, hpc3$Voltage, type="l", ylab = "Voltage", xlab = "datetime")
@@ -41,3 +45,4 @@ points(hpc3$DateTime, hpc3$Sub_metering_2, type="l", col="red")
 points(hpc3$DateTime, hpc3$Sub_metering_3, type="l", col="blue")
 legend("topright", pch = "_", col=c("black", "blue", "red"), legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), lwd=2)
 plot(hpc3$DateTime, hpc3$Global_reactive_power, type="l", ylab = "Global_reactive_power", xlab = "datetime")
+dev.off()
